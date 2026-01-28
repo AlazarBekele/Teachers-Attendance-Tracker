@@ -1,6 +1,70 @@
-<div>
+{% load static %}
 
-    <div class="NavBar w-full h-30 bg-white flex justify-between items-center">
+<div class="w-full grid grid-rows-[120px_1fr_120px] h-screen">
+
+    <div class="NavBar w-full h-[120px] bg-white flex justify-between items-center">
+
+        <div class="w-3/5 flex justify-center items-center">
+
+            <div class="w-1/3 flex justify-center">
+
+                <p class="text-4xl fjalla_one_regular">TAT - Tracker<span class="text-sky-500">.</span></p>
+
+            </div>
+
+            <ul class="flex justify-center items-center bree_serif_regular gap-16">
+
+                <li>Home</li>
+                <li>Get qr</li>
+                <li>Fill Attendance</li>
+
+            </ul>
+
+        </div>
+
+        <div class="w-2/5 flex justify-center items-center gap-8">
+
+            <button class="w-50 h-15 bg-linear-to-bl from-violet-500 to-fuchsia-500 text-white fjalla_one_regular text-2xl rounded-full">Sign up</button>
+            <button class="w-50 h-15 bg-indigo-300/40 text-2xl rounded-full">Sign in</button>
+
+        </div>
+
+    </div>
+
+    <div class="w-full flex justify-center items-center">
+
+        <div class="w-2/5">
+
+            <p class="text-green-600 text-2xl fjalla_one_regular"><i class="fa-solid fa-circle-check"></i> Save Your Time</p>
+            <p class="text-7xl bree_serif_regular">Simplify Teacher <span class="bg-green-600/30 text-white"> Attendance Tracking </span> with Confidence.</p>
+            
+            <div class="p-5">
+
+                <p class="bree_serif_regular">A simple and reliable attendance tool made for teachers.</p>
+
+            </div>
+
+            <div class="mt-8">
+
+                <div class="w-full h-15 rounded-full bg-white shadow-2xl shadow-blue-500/50 flex justify-evenly items-center">
+
+                    <p class="text-green-600 fjalla_one_regular text-2xl"><i class="fa-solid fa-chart-simple"></i> Simple</p>
+                    <p class="text-green-600 fjalla_one_regular text-2xl"><i class="fa-solid fa-business-time"></i> Save Time</p>
+                    <p class="text-green-600 fjalla_one_regular text-2xl"><i class="fa-solid fa-bolt"></i> Fast</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="w-2/5">
+            <img class="w-full" src="{% static 'Image/HeroIMG/DATAANA.png' %}" alt="">
+        </div>
+
+    </div>
+
+    <div class="NavBar w-full h-[120px] bg-white flex justify-between items-center">
 
         <div class="w-3/5 flex justify-center items-center">
 
