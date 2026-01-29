@@ -5,32 +5,32 @@ from django.contrib.auth.models import User
 class SignUpForm (UserCreationForm):
 
     firstName = forms.CharField (max_length=20, widget=forms.TextInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'First Name'
     }))
 
     lastName = forms.CharField (max_length=20, widget=forms.TextInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'Last Name'
     }))
 
     username = forms.CharField (max_length=20, widget=forms.TextInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'Username'
     }))
 
     email = forms.EmailField (widget=forms.EmailInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'Email'
     }))
 
     password1 = forms.CharField (max_length=10, widget=forms.PasswordInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'Password'
     }))
 
     password2 = forms.CharField (max_length=10, widget=forms.PasswordInput(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10',
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none',
         'placeholder' : 'Password2'
     }))
 

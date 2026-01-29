@@ -26,7 +26,7 @@
 
             </div>
 
-            <form class="w-3/4 grid grid-flow-col grid-rows-4 gap-4" method="post">
+            <form class="w-3/4 grid grid-flow-col grid-rows-5 gap-4" method="post">
 
                 {% csrf_token %}
                 <div class="flex justify-evenly items-center gap-4">
@@ -53,6 +53,10 @@
                     {{ Form.password1 }}
                     {{ Form.password2 }}
 
+                </div>
+
+                <div>
+                    <button class="cursor-pointer bg-green-600 text-white fjalla_one_regular w-2/5 h-[50px] text-xl rounded-sm" type="submit">Sign Up <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
 
             </form>
