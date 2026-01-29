@@ -18,3 +18,7 @@ def auth_signUp (request):
         'Form' : Form
     }
     return render (request, 'include/authentication/signUp.html', context=context)
+
+def auth_login (request):
+
+    return render (request, 'include/authentication/signIn.html')
