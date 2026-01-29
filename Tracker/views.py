@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
 # Create your views here.
 
 def index (request):
@@ -8,4 +8,13 @@ def index (request):
 
 def auth_signUp (request):
 
-    return render (request, 'include/authentication/signUp.html')
+    Form = SignUpForm (request.POST or None)
+    if request.method == 'POST':
+        if Form.is_valid ():
+            Form.save()
+            return redirect ('Index')
+        
+    context = {
+        'Form' : Form
+    }
+    return render (request, 'include/authentication/signUp.html', context=context)

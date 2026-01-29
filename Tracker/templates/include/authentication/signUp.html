@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +8,44 @@
 
 <body>
     
-    <div>
+    <div class="w-full h-dvh flex justify-center items-center">
 
-        <div>
-            <img src="" alt="">
+        <div class="w-3/5">
+            <img class="w-screen h-screen object-cover" src="{% static 'Image/SignUp/Signup.jpg' %}" alt="">
         </div>
 
-        <div>
+        <div class="w-2/5 h-3/4 flex justify-center items-start">
 
-            
+            <form class="w-3/4 grid grid-flow-col grid-rows-4 gap-4" method="post">
+
+                {% csrf_token %}
+                <div class="flex justify-evenly items-center gap-4">
+
+                    {{ Form.firstName }}
+                    {{ Form.lastName }}
+
+                </div>
+
+                <div>
+
+                    {{ Form.email }}
+
+                </div>
+
+                <div class="flex justify-evenly items-center gap-4">
+
+                    {{ Form.username }}
+
+                </div>
+
+                <div class="flex justify-evenly items-center gap-4">
+
+                    {{ Form.password1 }}
+                    {{ Form.password2 }}
+
+                </div>
+
+            </form>
 
         </div>
 
