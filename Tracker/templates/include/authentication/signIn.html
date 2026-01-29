@@ -8,10 +8,47 @@
 
 <body class="h-screen bg-cover bg-center" style="background-image: url('{% static 'Image/SignIn/SignIn.jpg' %}');">
 
-    <div class="w-full h-screen">
+    <div class="w-full h-screen flex justify-center items-center">
 
-        <div>
+        <div class="w-2/5 h-2/3 bg-white flex flex-col justify-center items-center">
+            <form class="w-4/5 h-3/5 p-5" method="post">
+                
+                {% csrf_token %}
+                <div class="w-3/4 p-6 text-start">
 
+                    <p class="text-4xl fjalla_one_regular text-start">TAT - Sign In Login</p>
+                    <div class="flex justify-start items-center gap-2 p-2">
+                        <i class="fa-solid fa-arrow-right-to-bracket text-green-600 text-2xl"></i>
+                        <p class="text-sm text-green-600 fjalla_one_regular">Teachers Attendance Tracker Login Page</p>
+                    </div>
+
+                </div>
+
+                <div class="w-full flex flex-col gap-4">
+
+                    <div class="flex flex-col justify-center items-center gap-4">
+                        {{ Form_login.username }}
+                        {{ Form_login.password }}
+                    </div>
+
+                    <div class="w-4/5 flex justify-between items-center gap-4">
+                        <button class="cursor-pointer w-1/2 bg-green-600 text-white fjalla_one_regular h-[50px] text-xl rounded-sm" type="submit">Login</button>
+                        <div class="w-1/2 text-start">
+                            <a class="p-8" href="{% url 'Index' %}">Cancle</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="p-6 flex justify-center items-center">
+                    <hr class="w-3/5 h-[10px] opacity-10">
+                </div>
+
+                <div class="flex justify-center items-center text-gray-600/30">
+                    <p>Login To Check Attendance</p>
+                </div>
+
+            </form>
         </div>
 
     </div>
