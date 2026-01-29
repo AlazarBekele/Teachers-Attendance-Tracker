@@ -25,8 +25,12 @@
 
         <div class="w-2/5 flex justify-center items-center gap-8">
 
-            <a href="{% url 'SignUp' %}"><button class="cursor-pointer w-50 h-15 bg-linear-to-bl from-violet-500 to-fuchsia-500 text-white fjalla_one_regular text-2xl rounded-full">Sign up</button></a>
-            <button class="w-50 h-15 bg-indigo-300/40 text-2xl rounded-full fjalla_one_regular">Sign in</button>
+            {% if request.user.is_authenticated %}
+                <p class="text-2xl fjalla_one_regular">{{ request.user.first_name }}</p>
+            {% else %}
+                <a href="{% url 'SignUp' %}"><button class="cursor-pointer w-50 h-15 bg-linear-to-bl from-violet-500 to-fuchsia-500 text-white fjalla_one_regular text-2xl rounded-full">Sign up</button></a>
+                <button class="w-50 h-15 bg-indigo-300/40 text-2xl rounded-full fjalla_one_regular">Sign in</button>
+            {% endif %}
 
         </div>
 

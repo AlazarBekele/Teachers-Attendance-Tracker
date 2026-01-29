@@ -8,7 +8,7 @@ def index (request):
 
 def auth_signUp (request):
 
-    Form = SignUpForm (request.POST or None)
+    Form = SignUpForm (request.POST)
     if request.method == 'POST':
         if Form.is_valid ():
             Form.save()

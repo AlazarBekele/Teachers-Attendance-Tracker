@@ -31,8 +31,8 @@
                 {% csrf_token %}
                 <div class="flex justify-evenly items-center gap-4">
 
-                    {{ Form.firstName }}
-                    {{ Form.lastName }}
+                    {{ Form.first_name }}
+                    {{ Form.last_name }}
 
                 </div>
 
@@ -55,8 +55,12 @@
 
                 </div>
 
-                <div>
-                    <button class="cursor-pointer bg-green-600 text-white fjalla_one_regular w-2/5 h-[50px] text-xl rounded-sm" type="submit">Sign Up <i class="fa-solid fa-arrow-right"></i></button>
+                <div class="w-4/5 flex justify-evenly items-center">
+                    <button class="cursor-pointer w-1/2 bg-green-600 text-white fjalla_one_regular h-[50px] text-xl rounded-sm" type="submit">Sign Up <i class="fa-solid fa-arrow-right"></i></button>
+
+                    <div class="">
+                        <a class="text-green-600" href="{% url 'Index' %}">Cancle</a>
+                    </div>
                 </div>
 
             </form>
