@@ -9,5 +9,14 @@
     
     {% include "include/Landing/HeroBanner.html" %}
 
+    <script>
+        const timeTable = document.querySelector('.AttendanceModel');
+        const btn = document.getElementById('openTimeTable');
+
+        btn.addEventListener('click', () => {
+            timeTable.classList.add('AttendanceModel_on');
+            timeTable.classList.remove('AttendanceModel')
+        });
+    </script>
 </body>
 </html>
