@@ -17,3 +17,35 @@ class Profile (models.Model):
 
     def __str__(self):
         return self.user.username
+    
+
+class Time_Table (models.Model):
+
+    DAYS = [
+        ('MON', 'Monday'),
+        ('TUE', 'Tuesday'),
+        ('WED', 'Wednesday'),
+        ('THU', 'Thursday'),
+        ('FRI', 'Friday'),
+        ('SAT', 'Saturday'),
+        ('SUN', 'Sunday')
+    ]
+
+    PERIODS = [
+        (1, '1st Period'),
+        (2, '2nd Period'),
+        (3, '3rd Period'),
+        (4, '4th Period'),
+        (5, '5th Period'),
+        (6, '6th Period'),
+    ]
+
+    teachers = models.ForeignKey (Profile, on_delete=models.CASCADE)
+    day = models.CharField (max_length=3, choices=DAYS)
+    period = models.IntegerField (choices=PERIODS)
+
+    class Meta:
+        unique_together = ('teachers', 'day', 'period')
+
+    def __str__(self):
+        return self.teachers.user.first_name
