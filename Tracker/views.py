@@ -17,7 +17,7 @@ def auth_signUp (request):
             profile = user.profile
             profile.teachers_field = form.cleaned_data['subject_field']
             profile.save()
-            
+
             return redirect ('Index')
         
     context = {
@@ -46,3 +46,10 @@ def auth_login (request):
     }
 
     return render (request, 'include/authentication/signIn.html', context=context)
+
+
+def auth_logout (request):
+
+    if request.method == 'POST':
+        logout (request)
+        return redirect ('SignUp')

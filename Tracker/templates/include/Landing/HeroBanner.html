@@ -27,6 +27,12 @@
 
             {% if request.user.is_authenticated %}
                 <p class="text-2xl fjalla_one_regular">Teacher <span class="bg-green-600 text-white p-1">{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
+                {% if request.user.profile.teachers_field %}
+                    <p class="text-2xl fjalla_one_regular">{{ request.user.profile.teachers_field }}</p>
+                {% else %}
+                    <p class="text-2xl fjalla_one_regular">None Subject</p>
+                {% endif %}
+
                 {% if request.user.is_staff  %}
                     <p class="text-2xl fjalla_one_regular"><span class="bg-green-600 text-white p-1">Admin</span></p>
                 {% endif %}
@@ -34,6 +40,13 @@
                 <a href="{% url 'SignUp' %}"><button class="cursor-pointer w-50 h-15 bg-linear-to-bl from-violet-500 to-fuchsia-500 text-white fjalla_one_regular text-2xl rounded-full">Sign up</button></a>
                 <a href="{% url 'SignIn' %}"><button class="w-50 h-15 bg-indigo-300/40 text-2xl rounded-full fjalla_one_regular">Sign in</button></a>
             {% endif %}
+
+            <div>
+                <form action="{% url 'Logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bree_serif_regular cursor-pointer">Logout</button>
+                </form>
+            </div>
 
         </div>
 
