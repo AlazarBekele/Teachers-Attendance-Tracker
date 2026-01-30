@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Profile
 
 class SignUpForm (UserCreationForm):
 
@@ -34,9 +35,13 @@ class SignUpForm (UserCreationForm):
         'placeholder' : 'Password2'
     }))
 
+    subject_field = forms.ChoiceField (choices=Profile.SUBJECT_CHOICES, label='Select Subject', widget=forms.Select(attrs={
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
+    }))
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2', 'subject_field')
 
 
 class SignInForm (forms.Form):

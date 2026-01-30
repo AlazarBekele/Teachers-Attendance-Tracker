@@ -9,14 +9,19 @@ def index (request):
 
 def auth_signUp (request):
 
-    Form = SignUpForm (request.POST)
+    form = SignUpForm (request.POST)
     if request.method == 'POST':
-        if Form.is_valid ():
-            Form.save()
+        if form.is_valid ():
+            user = form.save()
+
+            profile = user.profile
+            profile.teachers_field = form.cleaned_data['subject_field']
+            profile.save()
+            
             return redirect ('Index')
         
     context = {
-        'Form' : Form
+        'Form' : form
     }
     return render (request, 'include/authentication/signUp.html', context=context)
 
