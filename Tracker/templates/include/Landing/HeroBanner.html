@@ -2,7 +2,7 @@
 
 <div class="relative">
 
-    <div class="w-full h-screen grid grid-flow-col grid-rows-[120px_1fr_120px]">
+    <div id="NavActive" class="w-full h-screen grid grid-flow-col grid-rows-[120px_1fr_120px]">
 
         <div class="NavBar w-full h-[120px] bg-white flex justify-between items-center">
 
@@ -99,8 +99,11 @@
 
     <div class="w-[700px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 AttendanceModel">
         
-        <div class="w-full h-5/3 bg-green-600">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni tenetur officiis quas nemo dolorem, hic id saepe, ea perspiciatis deserunt assumenda sequi maxime voluptate asperiores nobis libero. Tempore, vero temporibus?</p>
+        <div class="w-full p-4 rounded-sm h-5/3 bg-white">
+            <p class="bree_serif_regular text-2xl">Teacher's Time Table <span class="bg-green-600 text-white p-1 text-2xl"> TR.{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
+            <div>
+
+            </div>
         </div>
 
     </div>

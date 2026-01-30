@@ -12,10 +12,12 @@
     <script>
         const timeTable = document.querySelector('.AttendanceModel');
         const btn = document.getElementById('openTimeTable');
+        const navactive = document.getElementById('NavActive')
 
         btn.addEventListener('click', () => {
             timeTable.classList.add('AttendanceModel_on');
-            timeTable.classList.remove('AttendanceModel')
+            timeTable.classList.remove('AttendanceModel');
+            navactive.classList.add ('OpacityChange')
         });
     </script>
 </body>

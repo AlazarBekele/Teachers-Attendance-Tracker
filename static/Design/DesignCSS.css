@@ -1,6 +1,6 @@
 
 .AttendanceModel {
-    display: none;
+    display: block;
 }
 
 .AttendanceModel_on {
@@ -19,4 +19,8 @@
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+.OpacityChange {
+    opacity: 0.2;
 }
