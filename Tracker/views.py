@@ -1,13 +1,24 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, SignInForm
+from .forms import SignUpForm, SignInForm, Time_tablePeriod
 from django.contrib.auth import login, logout, authenticate
 
 from django.shortcuts import get_object_or_404
+from .models import Time_Table
 # Create your views here.
 
 def index (request):
 
-    return render (request, 'index.html')
+    InsertTimePeriod = Time_tablePeriod (request.POST)
+    if request.method == 'POST':
+        if InsertTimePeriod.is_valid():
+            InsertTimePeriod.save()
+            return redirect ('Index')
+        
+    context = {
+        'InputTime' : InsertTimePeriod
+    }
+
+    return render (request, 'index.html', context=context)
 
 def auth_signUp (request):
 

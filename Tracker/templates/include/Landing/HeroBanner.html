@@ -112,6 +112,25 @@
 
         <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel SettingPage">
             <p class="bree_serif_regular text-2xl">Setting</p>
+
+            <div>
+
+                <form method="post">
+                    
+                    {% csrf_token %}
+                    <div>
+                        {{ InputTime.classroom }}
+                    </div>
+
+                    <div>
+                        {{ InputTime.day }}
+                        {{ InputTime.period }}
+                    </div>
+
+                </form>
+
+            </div>
+            
         </div>
 
     </div>
