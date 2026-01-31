@@ -5,9 +5,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path ('', index, name='Index'),
+    path ('index/', index, name='Index'),
     path ('signup/', auth_signUp, name='SignUp'),
-    path ('signin/', auth_login, name='SignIn'),
+    path ('', auth_login, name='SignIn'),
     path ('logout/', auth_logout, name='Logout')
 ]
 

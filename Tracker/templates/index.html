@@ -19,6 +19,15 @@
             timeTable.classList.remove('AttendanceModel');
             navactive.classList.add ('OpacityChange')
         });
+
+        const settingopenBTN = document.getElementById('Setting_Open')
+        const settingpage =document.querySelector ('.SettingPage')
+        
+        settingopenBTN.addEventListener('click', () => {
+            settingpage.classList.add('AttendanceModel_on');
+            settingpage.classList.remove('AttendanceModel');
+            navactive.classList.add ('OpacityChange')
+        });
     </script>
 </body>
 </html>

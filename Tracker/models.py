@@ -21,6 +21,11 @@ class Profile (models.Model):
 
 class Time_Table (models.Model):
 
+    CLASSROOMS = [
+        ('A', 'a'),('B', 'b'),('C', 'c'),('D', 'd'),('F', 'e'),
+        ('G', 'g'),('H', 'h')
+    ]
+
     DAYS = [
         ('MON', 'Monday'),
         ('TUE', 'Tuesday'),
@@ -41,6 +46,7 @@ class Time_Table (models.Model):
     ]
 
     teachers = models.ForeignKey (Profile, on_delete=models.CASCADE)
+    classroom = models.CharField (max_length=1, choices=CLASSROOMS)
     day = models.CharField (max_length=3, choices=DAYS)
     period = models.IntegerField (choices=PERIODS)
 

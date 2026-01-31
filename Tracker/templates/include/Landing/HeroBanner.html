@@ -48,6 +48,8 @@
                     <a href="{% url 'SignIn' %}"><button class="w-50 h-15 bg-indigo-300/40 text-2xl rounded-full fjalla_one_regular">Sign in</button></a>
                 {% endif %}
 
+                <button id="Setting_Open" class="bree_serif_regular cursor-pointer p-2 bg-green-600 rounded-sm text-white">Setting</button>
+
             </div>
 
         </div>
@@ -97,13 +99,19 @@
 
     </div>
 
-    <div class="w-[700px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 AttendanceModel">
+    <div class="w-[700px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         
-        <div class="w-full p-4 rounded-sm h-5/3 bg-white">
+        <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel">
             <p class="bree_serif_regular text-2xl">Teacher's Time Table <span class="bg-green-600 text-white p-1 text-2xl"> TR.{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
             <div>
 
+
+
             </div>
+        </div>
+
+        <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel SettingPage">
+            <p class="bree_serif_regular text-2xl">Setting</p>
         </div>
 
     </div>
