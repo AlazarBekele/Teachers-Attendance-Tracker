@@ -19,7 +19,7 @@ class Profile (models.Model):
         return self.user.username
     
 
-class Time_Table (models.Model):
+class PeriodContainer (models.Model):
 
     CLASSROOMS = [
         ('A', 'a'),('B', 'b'),('C', 'c'),('D', 'd'),('F', 'e'),
@@ -46,7 +46,6 @@ class Time_Table (models.Model):
     ]
 
     teachers = models.ForeignKey (Profile, on_delete=models.CASCADE)
-    classroom = models.CharField (max_length=1, choices=CLASSROOMS)
     day = models.CharField (max_length=3, choices=DAYS)
     period = models.IntegerField (choices=PERIODS)
 

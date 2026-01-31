@@ -111,23 +111,30 @@
         </div>
 
         <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel SettingPage">
-            <p class="bree_serif_regular text-2xl">Setting</p>
+            <p class="bree_serif_regular text-2xl">Setting About TAT - Time Table Fill</p>
 
-            <div>
+            <div class="w-full flex justify-center items-center p-2 gap-4">
 
-                <form method="post">
+                <form class="w-1/2 grid grid-flow-col grid-rows-3 gap-4" method="post">
                     
                     {% csrf_token %}
                     <div>
                         {{ InputTime.classroom }}
                     </div>
 
-                    <div>
+                    <div class="flex justify-center items-center gap-4">
                         {{ InputTime.day }}
                         {{ InputTime.period }}
                     </div>
 
+                    <button class="w-2/5 bg-green-600 p-2 text-white bree_serif_regular rounded-sm" type="submit">Save Time</button>
+
                 </form>
+
+                <div class="w-1/2 flex justify-center items-start p-2">
+                    <p class="bree_serif_regular text-sm text-center text-xs">Teachers can quickly check their schedules online anytime, reducing confusion and saving valuable time.
+It keeps classes organized and helps teachers stay punctual, prepared, and focused on their students. ✨</p>
+                </div>
 
             </div>
             

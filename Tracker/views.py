@@ -3,7 +3,7 @@ from .forms import SignUpForm, SignInForm, Time_tablePeriod
 from django.contrib.auth import login, logout, authenticate
 
 from django.shortcuts import get_object_or_404
-from .models import Time_Table
+from .models import PeriodContainer
 # Create your views here.
 
 def index (request):
@@ -11,7 +11,10 @@ def index (request):
     InsertTimePeriod = Time_tablePeriod (request.POST)
     if request.method == 'POST':
         if InsertTimePeriod.is_valid():
-            InsertTimePeriod.save()
+            obj = InsertTimePeriod.save(commit=False)
+            obj.teachers = request.user.profile
+            obj.save()
+            print ('Saved!!', obj)
             return redirect ('Index')
         
     context = {

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile, Time_Table
+from .models import Profile, PeriodContainer
 
 class SignUpForm (UserCreationForm):
 
@@ -59,18 +59,18 @@ class SignInForm (forms.Form):
 
 class Time_tablePeriod (forms.ModelForm):
 
-    classroom = forms.ChoiceField (choices=Time_Table.CLASSROOMS, widget=forms.Select(attrs={
+    # classroom = forms.ChoiceField (choices=PeriodContainer.CLASSROOMS, widget=forms.Select(attrs={
+    #     'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
+    # }))
+
+    day = forms.ChoiceField (choices=PeriodContainer.DAYS, widget=forms.Select(attrs={
         'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
     }))
 
-    day = forms.ChoiceField (choices=Time_Table.DAYS, widget=forms.Select(attrs={
-        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
-    }))
-
-    period = forms.ChoiceField (choices=Time_Table.PERIODS, widget=forms.Select(attrs={
+    period = forms.ChoiceField (choices=PeriodContainer.PERIODS, widget=forms.Select(attrs={
         'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
     }))
 
     class Meta:
-        model = Time_Table
-        fields = ('classroom', 'day', 'period')
+        model = PeriodContainer
+        fields = ('day', 'period')
