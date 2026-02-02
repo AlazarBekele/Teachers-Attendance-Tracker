@@ -28,6 +28,15 @@
             settingpage.classList.remove('AttendanceModel');
             navactive.classList.add ('OpacityChange')
         });
+
+        const openfillAttendance = document.getElementById('openFillAttendance')
+        const fillAttendanceModel = document.querySelector('.FillAttendanceModel')
+
+        openfillAttendance.addEventListener('click', () => {
+            fillAttendanceModel.classList.remove ('AttendanceModel')
+            fillAttendanceModel.classList.add ('AttendanceModel_on')
+            navactive.classList.add ('OpacityChange')
+        });
     </script>
 </body>
 </html>

@@ -48,6 +48,7 @@ class PeriodContainer (models.Model):
     teachers = models.ForeignKey (Profile, on_delete=models.CASCADE)
     day = models.CharField (max_length=3, choices=DAYS)
     period = models.IntegerField (choices=PERIODS)
+    classroom = models.CharField (max_length=1, choices=CLASSROOMS)
 
     class Meta:
         unique_together = ('teachers', 'day', 'period')
