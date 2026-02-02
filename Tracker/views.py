@@ -16,6 +16,8 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
+from .models import Profiles   # if not already imported
+
 # Create your views here.
 
 # __________________________________________________________________________
@@ -60,6 +62,8 @@ def control_teacher (request):
 @login_required(login_url='/signup/')
 def index (request):
 
+    profile, created = Profiles.objects.get_or_create(user=request.user)
+
     allowed_time = is_attendance_time()
     if allowed_time:
         totp = get_totp()
@@ -79,7 +83,7 @@ def index (request):
             if totp.verify(user_code):
 
                 AttendaceModel.objects.create (
-                    teachersFill=request.user.profile
+                    teachersFill=profile
                 )
                 messages.success (request, "Attendance is Filled!!")
                 return redirect ('Index')
