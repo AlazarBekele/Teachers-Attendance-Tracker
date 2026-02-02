@@ -16,7 +16,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
-from .models import Profiles   # if not already imported
+from .models import Profile
 
 # Create your views here.
 
