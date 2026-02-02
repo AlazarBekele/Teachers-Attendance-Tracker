@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <title>TAT | Create Fill Attendance</title>
+    {% include "include/IncludeHead.html" %}
+
+<body class="h-screen bg-cover bg-center flex justify-center items-center" style="background-image: url('{% static 'Image/SignIn/SignIn.jpg' %}');">
+
+    <div class="w-9/10 h-9/10 bg-white rounded-sm p-4 relative">
+        <div class="p-4">
+
+            <div>
+                <p class="fjalla_one_regular text-xl">Generate Fillable Password</p>
+            </div>
+
+            <div>
+                <p class="fjalla_one_regular border-y-1 border-green-300 p-2 text-2xl"><span class="uppercase text-4xl">Subject - </span> Your Attendance Verification Code – Teacher Attendance Tracker</p>
+                <p class="font-bold bree_serif_regular text-2xl">Hello,</p>
+                <p class="bree_serif_regular">Your attendance verification code has been generated. <br>
+                    
+                    <ul class="bree_serif_regular p-4">
+                        <li>🔐 Verification Code: <span class="bree_serif_regular bg-green-600 p-1 text-white text-xl">{{ code }}</span></li>
+                        <li>⏳ Valid for: 30 seconds only</li>
+                        <li>🕒 Time:  9:45 - 10:00 </li>
+                    </ul>
+
+                    <span class="font-bold">Please enter this code in the Teacher Attendance Tracker to confirm your presence for the current period.</span>
+
+                   <ul class="bg-green-600 p-4 w-3/10 bree_serif_regular text-white">
+                     For security reasons:
+                        <li>• This code expires automatically</li>
+                        <li>• Do not share it with anyone</li>
+                        <li>• A new code will be generated after it expires</li>
+                   </ul>
+
+                    <span class="font-bold p-4">If you did not request this code, you may safely ignore this message.</span> <br>
+
+                    <p class="p-4 bree_serif_regular">
+                        Thank you,<br>
+                        Teacher Attendance Tracker (TAT) System
+                    </p>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="absolute bottom-0 right-0">
+            <a href="{% url 'Index' %}"><button class="bg-violet-700 text-white p-4 bree_serif_regular rounded-tl-lg">Back</button></a>
+            <button class="bg-green-600 text-white p-4 bree_serif_regular">Post Code!</button>
+        </div>
+    </div>
+    
+</body>
+</html>

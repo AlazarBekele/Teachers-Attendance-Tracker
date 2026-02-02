@@ -55,3 +55,13 @@ class PeriodContainer (models.Model):
 
     def __str__(self):
         return self.teachers.user.first_name
+    
+
+class AttendaceModel (models.Model):
+
+    teachersFill = models.ForeignKey (Profile, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.teachersFill.user.username

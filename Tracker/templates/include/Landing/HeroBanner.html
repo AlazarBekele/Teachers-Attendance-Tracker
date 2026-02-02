@@ -14,12 +14,19 @@
 
                 </div>
 
-                <ul class="flex justify-center items-center bree_serif_regular gap-16">
+                {% if request.user.is_staff %}
+                    <div class="flex justify-center items-center gap-16 bree_serif_regular">
+                        <a href="{% url 'AdminControl' request.user.username %}"><p>Create TAT Fill</p></a>
+                        <a href="#"><p>Control Teachers</p></a>
+                    </div>
+                {% else %}
+                    <ul class="flex justify-center items-center bree_serif_regular gap-16">
 
-                    <button class="cursor-pointer" id="openFillAttendance">Fill Attendance</button>
-                    <button class="cursor-pointer" id="openTimeTable">Time Table</button>
+                        <button class="cursor-pointer" id="openFillAttendance">Fill Attendance</button>
+                        <button class="cursor-pointer" id="openTimeTable">Time Table</button>
 
-                </ul>
+                    </ul>
+                {% endif %}
 
             </div>
 
@@ -103,27 +110,35 @@
         <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel TimeTableShow">
             <p class="bree_serif_regular text-2xl">Teacher's Time Table <span class="bg-green-600 text-white p-1 text-2xl"> TR.{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
             <div>
+                <div class="p-4">
+                    {% if TimeTableFilter %}
+                        <table class="table-auto border border-gray-300 rounded-xl overflow-hidden">
+                            <thead class="bg-green-600 text-white">
+                                <tr>
+                                    <th class="px-6 py-3 text-left">Class Name</th>
+                                    <th class="px-6 py-3 text-left">Day</th>
+                                    <th class="px-6 py-3 text-left">Period</th>
+                                </tr>
+                            </thead>
 
-                <table class="table-auto">
-                    <thead>
-                        <tr>
-                            <th>Class Name</th>
-                            <th>Day</th>
-                            <th>Period</th>
-                        </tr>
-                    </thead>
+                            <tbody class="bree_serif_regular">
+                                {% for TimeTableFilters in TimeTableFilter %}
+                                    <tr class="bg-gray-50">
+                                        <td class="px-6 py-3">{{ TimeTableFilters.classroom }}</td>
+                                        <td class="px-6 py-3">{{ TimeTableFilters.day }}</td>
+                                        <td class="px-6 py-3">{{ TimeTableFilters.period }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p class="bg-gray-100 text-center p-2 bree_serif_regular">No data's is fill...!!</p>
+                    {% endif %}
+                </div>
 
-                    <tbody>
-                        {% for TimeTableFilters in TimeTableFilter %}
-                            <tr>
-                                <td>{{ TimeTableFilters.classroom }}</td>
-                                <td>{{ TimeTableFilters.day }}</td>
-                                <td>{{ TimeTableFilters.period }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-
+                <div>
+                    <a class="text-red-600" href="{% url 'Index' %}"><button>Go Back</button></a>
+                </div>
             </div>
         </div>
 
@@ -144,7 +159,12 @@
                         {{ InputTime.period }}
                     </div>
 
-                    <button class="w-2/5 bg-green-600 p-2 text-white bree_serif_regular rounded-sm" type="submit">Save Time</button>
+                    <div class="flex justify-center items-center">
+                        <button class="w-2/5 bg-green-600 p-2 text-white bree_serif_regular rounded-sm" type="submit">Save Time</button>
+                        <div class="p-4">
+                            <a class="text-red-600" href="{% url 'Index' %}"><button>Go Back</button></a>
+                        </div>
+                    </div>
 
                 </form>
 
@@ -152,13 +172,66 @@
                     <p class="bree_serif_regular text-sm text-center text-xs">Teachers can quickly check their schedules online anytime, reducing confusion and saving valuable time.
 It keeps classes organized and helps teachers stay punctual, prepared, and focused on their students. ✨</p>
                 </div>
-
+                
             </div>
             
         </div>
 
-        <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel FillAttendanceModel">
-            <p>Hello World</p>
+        <div class="w-full p-4 rounded-sm h-3/5 bg-white AttendanceModel FillAttendanceModel">
+
+            <div>
+                <p class="bree_serif_regular text-2xl">{{message}}</p>
+                
+                <div class="p-4">
+
+                    <div>
+                        <p class="fjalla_one_regular text-xl">Generate Fillable Password</p>
+                    </div>
+
+                    <div>
+                        <p class="fjalla_one_regular border-y-1 border-green-300 p-2 text-2xl"><span class="uppercase text-4xl">Subject - </span> Your Attendance Verification Code – Teacher Attendance Tracker</p>
+                        <p class="font-bold bree_serif_regular text-2xl">Hello,</p>
+                            
+                            <ul class="bree_serif_regular p-4">
+                                <li>🔐 Verification Code: <span class="bree_serif_regular bg-green-600 p-1 text-white text-xl">{{ code }}</span></li>
+                                <li>⏳ Valid for: 30 seconds only</li>
+                                <li>🕒 Time:  9:45 - 10:00 </li>
+                            </ul>
+
+                            <span class="font-bold">Please enter this code in the Teacher Attendance Tracker to confirm your presence for the current period.</span>
+
+                        <ul class="bg-green-600 p-4 w-5/10 bree_serif_regular text-white">
+                            For security reasons:
+                                <li>• This code expires automatically</li>
+                                <li>• Do not share it with anyone</li>
+                                <li>• A new code will be generated after it expires</li>
+                        </ul>
+
+                            <span class="font-bold p-4">If you did not request this code, you may safely ignore this message.</span> <br>
+
+                            <p class="p-4 bree_serif_regular">
+                                Thank you,<br>
+                                Teacher Attendance Tracker (TAT) System
+                            </p>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="bg-green-600 text-white p-2 bree_serif_regular" type="submit">Confirm</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div>
+                <a class="text-red-600" href="{% url 'Index' %}"><button>Go Back</button></a>
+            </div>
+
         </div>
 
     </div>

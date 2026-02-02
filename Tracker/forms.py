@@ -74,3 +74,11 @@ class Time_tablePeriod (forms.ModelForm):
     class Meta:
         model = PeriodContainer
         fields = ('classroom' ,'day', 'period')
+
+
+class AttendanceInputCheck (forms.Form):
+
+    code = forms.CharField (max_length=6, widget=forms.TextInput(attrs={
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[50px] shadow-sm shadow-blue-500/10 outline-none',
+        'placeholder' : 'Enter passcode to fill Attendance'
+    }))
