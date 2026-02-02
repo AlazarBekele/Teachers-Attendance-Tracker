@@ -3,7 +3,7 @@ from .forms import SignUpForm, SignInForm, Time_tablePeriod, AttendanceInputChec
 from django.contrib.auth import login, logout, authenticate
 
 from django.shortcuts import get_object_or_404
-from .models import PeriodContainer, AttendaceModel
+from .models import PeriodContainer, AttendaceModel, Profile
 
 import pyotp
 from django.conf import settings
@@ -62,7 +62,7 @@ def control_teacher (request):
 @login_required(login_url='/signup/')
 def index (request):
 
-    profile, created = Profiles.objects.get_or_create(user=request.user)
+    profile, created = Profile.objects.get_or_create(user=request.user)
 
     allowed_time = is_attendance_time()
     if allowed_time:
