@@ -47,6 +47,14 @@ def admin_control (request, username):
     }
     return render (request, 'include/Admin/CreateAttendaceFill.html', context=context)
 
+def control_teacher (request):
+    
+    model = AttendaceModel.objects.all()
+    context = {
+        'model' : model
+    }
+    return render (request, 'include/Admin/ControlTeachers.html', context=context)
+
 # __________________________________________________________________________
 
 @login_required(login_url='/signup/')

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, auth_signUp, auth_login, auth_logout, admin_control
+from .views import index, auth_signUp, auth_login, auth_logout, admin_control, control_teacher
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,7 +9,8 @@ urlpatterns = [
     path ('signup/', auth_signUp, name='SignUp'),
     path ('', auth_login, name='SignIn'),
     path ('logout/', auth_logout, name='Logout'),
-    path ('Admin_control/<str:username>', admin_control, name='AdminControl')
+    path ('Admin_control/<str:username>', admin_control, name='AdminControl'),
+    path ('control/', control_teacher, name='Control')
 ]
 
 if settings.DEBUG:

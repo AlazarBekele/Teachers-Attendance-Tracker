@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <title>TAT | Create Fill Attendance</title>
+    {% include "include/IncludeHead.html" %}
+
+<body class="h-screen bg-cover bg-center flex justify-center items-center" style="background-image: url('{% static 'Image/SignIn/SignIn.jpg' %}');">
+
+    <div class="w-9/10 h-9/10 bg-white rounded-sm p-4 relative">
+        <div class="p-4">
+            <p class="bree_serif_regular text-4xl p-4">Teacher Attendance Check</p>
+            <div class="border-y-1 p-4">
+                {% for models in model %}
+                    <p class="bree_serif_regular">{{ models.teachersFill }} {{ models.created_at }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 right-0">
+            <a href="{% url 'Index' %}"><button class="bg-violet-700 text-white p-4 bree_serif_regular rounded-tl-lg">Back</button></a>
+        </div>
+    </div>
+    
+</body>
+</html>

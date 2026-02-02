@@ -17,7 +17,7 @@
                 {% if request.user.is_staff %}
                     <div class="flex justify-center items-center gap-16 bree_serif_regular">
                         <a href="{% url 'AdminControl' request.user.username %}"><p>Create TAT Fill</p></a>
-                        <a href="#"><p>Control Teachers</p></a>
+                        <a href="{% url 'Control' %}"><p>Control Teachers</p></a>
                     </div>
                 {% else %}
                     <ul class="flex justify-center items-center bree_serif_regular gap-16">
