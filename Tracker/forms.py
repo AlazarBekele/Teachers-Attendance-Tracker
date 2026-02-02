@@ -59,9 +59,9 @@ class SignInForm (forms.Form):
 
 class Time_tablePeriod (forms.ModelForm):
 
-    # classroom = forms.ChoiceField (choices=PeriodContainer.CLASSROOMS, widget=forms.Select(attrs={
-    #     'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
-    # }))
+    classroom = forms.ChoiceField (choices=PeriodContainer.CLASSROOMS, widget=forms.Select(attrs={
+        'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
+    }))
 
     day = forms.ChoiceField (choices=PeriodContainer.DAYS, widget=forms.Select(attrs={
         'class' : 'pl-4 bg-cyan-100/50 w-full h-[40px] shadow-sm shadow-blue-500/10 outline-none'
@@ -73,4 +73,4 @@ class Time_tablePeriod (forms.ModelForm):
 
     class Meta:
         model = PeriodContainer
-        fields = ('day', 'period')
+        fields = ('classroom' ,'day', 'period')

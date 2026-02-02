@@ -48,10 +48,10 @@ class PeriodContainer (models.Model):
     teachers = models.ForeignKey (Profile, on_delete=models.CASCADE)
     day = models.CharField (max_length=3, choices=DAYS)
     period = models.IntegerField (choices=PERIODS)
-    classroom = models.CharField (max_length=1, choices=CLASSROOMS)
+    classroom = models.CharField (max_length=1, choices=CLASSROOMS, null=True, blank=True)
 
     class Meta:
-        unique_together = ('teachers', 'day', 'period')
+        unique_together = ('teachers', 'day', 'period', 'classroom')
 
     def __str__(self):
         return self.teachers.user.first_name
