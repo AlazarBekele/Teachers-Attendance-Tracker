@@ -1,0 +1,26 @@
+
+.AttendanceModel {
+    display: none;
+}
+
+.AttendanceModel_on {
+    display: block;
+    animation-name: TimeAnimate;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+@keyframes TimeAnimate {
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.OpacityChange {
+    opacity: 0.2;
+}
