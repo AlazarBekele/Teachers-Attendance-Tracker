@@ -100,11 +100,29 @@
 
     <div class="w-[700px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         
-        <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel">
+        <div class="w-full p-4 rounded-sm h-5/3 bg-white AttendanceModel TimeTableShow">
             <p class="bree_serif_regular text-2xl">Teacher's Time Table <span class="bg-green-600 text-white p-1 text-2xl"> TR.{{ request.user.first_name }} {{ request.user.last_name }}</span></p>
             <div>
 
+                <table class="table-auto">
+                    <thead>
+                        <tr>
+                            <th>Class Name</th>
+                            <th>Day</th>
+                            <th>Period</th>
+                        </tr>
+                    </thead>
 
+                    <tbody>
+                        {% for TimeTableFilters in TimeTableFilter %}
+                            <tr>
+                                <td>{{ TimeTableFilters.classroom }}</td>
+                                <td>{{ TimeTableFilters.day }}</td>
+                                <td>{{ TimeTableFilters.period }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
             </div>
         </div>

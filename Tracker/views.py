@@ -16,9 +16,12 @@ def index (request):
             obj.save()
             print ('Saved!!', obj)
             return redirect ('Index')
+
+    TimeTableFilter = PeriodContainer.objects.filter(teachers=request.user.profile)
         
     context = {
-        'InputTime' : InsertTimePeriod
+        'InputTime' : InsertTimePeriod,
+        'TimeTableFilter' : TimeTableFilter
     }
 
     return render (request, 'index.html', context=context)
